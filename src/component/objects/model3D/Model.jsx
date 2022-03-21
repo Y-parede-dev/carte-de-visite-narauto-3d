@@ -26,7 +26,6 @@ export const Model = (props) => {
     })
     
   return (
-    <Suspense fallback={null}>
         <group ref={group} {...props} rotateX={90} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, Math.PI]}>
 
@@ -44,7 +43,6 @@ export const Model = (props) => {
                 />
             </group>
         </group>
-    </Suspense>
   );
 }
 

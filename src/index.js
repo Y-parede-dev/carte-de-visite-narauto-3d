@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useEffect, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {useThree } from "react-three-fiber";
+
+const CameraController = () => {
+  const { camera, gl } = useThree();
+  useEffect(
+    () => {
+      const controls = new OrbitControls(camera, gl.domElement);
+
+      controls.minDistance = 3;
+      controls.maxDistance = 20;
+      return () => {
+        controls.dispose();
+      };
+    },
+    [camera, gl]
+  );
+  return null;
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback={null}>
+      <App />
+
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
