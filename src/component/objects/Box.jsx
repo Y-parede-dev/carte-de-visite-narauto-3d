@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {useFrame } from '@react-three/fiber'
-
+import React, { Suspense, useEffect, useRef, useState } from 'react'
+import {useFrame, useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export const Box = (props) => {
 
@@ -40,7 +40,7 @@ export const Box = (props) => {
         onPointerOver={(event) => setHover(true)}
         onPointerOut={(event) => setHover(false)}>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial opacity={!hovered?.23:1} color={hovered ? 'white' : active?'orange':'red'} />
+        <meshPhongMaterial opacity={1} transparent color={hovered ? 'blue' : active?'orange':'red'} />
       </mesh>
     )
   }

@@ -3,6 +3,7 @@ import './App.scss';
 import React, { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {Box} from './component/objects/Box'
+import {Model} from './component/objects/model3D/Model'
 
 function App() {
   const [lightColor, setLightColor] = useState('rgba(230,230,230)');
@@ -18,8 +19,7 @@ function App() {
       <Canvas>
         <ambientLight intensity={.9} color={lightColor}/>
         <pointLight position={[10,10,10]} />
-        <Box setLightColor={setLightColor} position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Model scale={.5}/>
       </Canvas>
       <footer >©️ - Magin Code</footer>
     </div>
