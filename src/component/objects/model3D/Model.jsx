@@ -17,16 +17,11 @@ export const Model = (props) => {
     // mesh.current.rotation.x += 0.01,
         if(bloc){
             group.current.rotation.y += 0
-
         }
         else if(active) {
-     
             group.current.rotation.y += .01
-            
-            
         }else{
             group.current.rotation.y -= .01
-
         }
     })
     
@@ -34,9 +29,6 @@ export const Model = (props) => {
         <group ref={group} {...props} rotateX={90} dispose={null}>
             <group 
                 rotation={[-Math.PI / 2, 0, Math.PI]}
-                
-                scale={1}
-                on
                 onClick={(event) =>{ 
                     setActive(!active)
                 }}

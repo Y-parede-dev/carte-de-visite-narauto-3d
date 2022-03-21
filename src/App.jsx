@@ -36,7 +36,7 @@ const CameraController = () => {
       </header>
       <Canvas>
         <CameraController />
-        <ambientLight intensity={.9} color={lightColor}/>
+        <ambientLight intensity={.86} color={lightColor}/>
         <pointLight position={[10,10,10]} />
         <Model scale={.5}/>
       </Canvas>
