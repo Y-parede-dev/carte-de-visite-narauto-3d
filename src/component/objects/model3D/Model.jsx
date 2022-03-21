@@ -10,12 +10,17 @@ import { useGLTF } from "@react-three/drei";
 export const Model = (props) => {
   const group = useRef();
   const [active, setActive] = useState(false)
+  const [hovered, setHover] = useState(false)
+  const [bloc, setBloc] = useState(false)
   const { nodes, materials } = useGLTF(test);
   useFrame((state, delta) => {
     // mesh.current.rotation.x += 0.01,
-        if(active) {
-            group.current.rotation.z += .01
-            group.current.rotation.x -= .01
+        if(bloc){
+            group.current.rotation.y += 0
+
+        }
+        else if(active) {
+     
             group.current.rotation.y += .01
             
             
@@ -27,7 +32,23 @@ export const Model = (props) => {
     
   return (
         <group ref={group} {...props} rotateX={90} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <group 
+                rotation={[-Math.PI / 2, 0, Math.PI]}
+                
+                scale={1}
+                on
+                onClick={(event) =>{ 
+                    setActive(!active)
+                }}
+                onPointerOver={(event) => {
+                    setHover(true)
+                    setBloc(true)
+                }}
+                onPointerOut={(event) => {
+                    setHover(false)
+                    setBloc(false)
+                    
+                }}>
 
             <mesh
                 castShadow

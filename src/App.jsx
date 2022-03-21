@@ -40,7 +40,7 @@ const CameraController = () => {
         <pointLight position={[10,10,10]} />
         <Model scale={.5}/>
       </Canvas>
-      <footer >©️ - Magin Code</footer>
+      <footer >©️ - 2022 Magin Code</footer>
     </div>
   );
 }
